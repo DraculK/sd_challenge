@@ -1,0 +1,82 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Responsive Nav</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <header>
+        <h1>Biblioteca da Universidade</h1>
+    </header>
+    <nav>
+        <% if user_signed_in? & admin?%>
+        <ul>
+            <a href="#">
+                <li>Home</li>
+            </a>
+            <a href="#">
+                <li>Adicionar livros</li>
+            </a>
+            <a href="#">
+                <li>Conta</li>
+            </a>
+            <a href="#">
+                <li>
+                    <%= link_to 'Log out', destroy_user_session_path, method: :delete%>
+                </li>
+            </a>
+        </ul>
+        <% elsif user_signed_in?%>
+        <ul>
+            <a href="#">
+                <li>Home</li>
+            </a>
+            <a href="#">
+                <li>Buscar</li>
+            </a>
+            <a href="#">
+                <li>Sobre</li>
+            </a>
+            <a href="#">
+                <li>Conta</li>
+            </a>
+            <a href="#">
+                <li>
+                    <%= link_to 'Log out', destroy_user_session_path, method: :delete%>
+                </li>
+            </a>
+        </ul>
+        <%else%>
+        <ul>
+            <a href="#">
+                <li>Home</li>
+            </a>
+            <a href="#">
+                <li>Sobre</li>
+            </a>
+            <a href="#">
+                <li>
+                    <%= link_to "Criar Conta", new_user_registration_path %>
+                </li>
+            </a>
+            <a href="#">
+                <li>
+                    <%= link_to 'Log in', new_user_session_path%>
+                </li>
+            </a>
+        </ul>
+        <%end%>
+        <div class="handle">Menu</div>
+    </nav>
+    <script>
+        $('.handle').on('click', function() {
+            $('nav ul').toggleClass('showing');
+        });
+    </script>
+</body>
+
+</html>
