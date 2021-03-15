@@ -15,7 +15,7 @@
     <nav>
         <% if user_signed_in? & admin?%>
         <ul>
-            <a href="#">
+            <a href="<%= root_path %>">
                 <li>Home</li>
             </a>
             <a href="#">
@@ -32,14 +32,11 @@
         </ul>
         <% elsif user_signed_in?%>
         <ul>
-            <a href="#">
+            <a href="<%= root_path %>">
                 <li>Home</li>
             </a>
             <a href="#">
                 <li>Buscar</li>
-            </a>
-            <a href="#">
-                <li>Sobre</li>
             </a>
             <a href="#">
                 <li>Conta</li>
@@ -52,11 +49,8 @@
         </ul>
         <%else%>
         <ul>
-            <a href="#">
+            <a href="<%= root_path %>">
                 <li>Home</li>
-            </a>
-            <a href="#">
-                <li>Sobre</li>
             </a>
             <a href="#">
                 <li>
