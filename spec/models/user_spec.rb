@@ -22,5 +22,9 @@ RSpec.describe User, type: :model do
     context "no registration" do
       it {expect(build(:user, registration: nil)).to be_invalid}
     end
+
+    context "no password" do
+      it {expect(build(:user, password: nil)).to be_invalid}
+    end
   end
 end
