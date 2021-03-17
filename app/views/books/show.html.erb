@@ -1,0 +1,18 @@
+<h2>
+    <%= @book.title %>
+</h2>
+
+<h3>
+    Autor: <%= @book.author %>
+</h3>
+
+<h3>
+    Ano: <%= @book.year %>
+</h3>
+
+<p>
+    <%= @book.description %>
+</p>
+
+<%= link_to "Editar livro", edit_book_path(@book)%>
+<%= link_to "Apagar livro", delete_book_path(@book), method: :delete, data: {confirm: "Essa ação não pode ser desfeita! Quer continuar?"} %>
