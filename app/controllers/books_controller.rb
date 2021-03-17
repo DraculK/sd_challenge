@@ -10,6 +10,7 @@ before_action :find_book, only: [:show, :edit, :update, :destroy]
 
     def new
         @book = Book.new
+        @categories = Category.all.map{ |c| [c.name, c.id]}
     end
 
     def edit
@@ -33,6 +34,7 @@ before_action :find_book, only: [:show, :edit, :update, :destroy]
 
     def create 
         @book = Book.new(book_params)
+        @book.category_id = params[:category_id]
         begin
             @book.save!
             flash[:succes] = "Livro adicionado ao catálogo."
@@ -49,7 +51,7 @@ before_action :find_book, only: [:show, :edit, :update, :destroy]
 
     private
     def book_params
-        params.require(:book).permit(:title, :author, :year, :description)
+        params.require(:book).permit(:title, :author, :year, :description, :category_id)
     end
 
     def find_book
