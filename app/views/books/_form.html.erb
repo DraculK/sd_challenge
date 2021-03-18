@@ -20,6 +20,15 @@
         <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Escolha a matéria") %>
     </div>
 
+    <div>
+        <% if book.image.attached? %>
+        <%= image_tag book.image, style: "width:250px; height:350px; display:block" %>
+        <% end %>
+
+        <%= f.label :image %>
+        <%= f.file_field :image, class: "form-control" %>
+    </div>
+
 </div>
 
 <div class="form-actions">
