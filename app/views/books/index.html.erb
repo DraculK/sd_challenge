@@ -4,7 +4,9 @@
         <%= "Bem-vindo de volta, #{current_user.name}!"%>
     </h1>
     <% @books.each do |book| %>
-    <h2><%= link_to book.title, show_book_path(book) %></h2>
+    <h2>
+        <%= link_to book.title, show_book_path(book) %>
+    </h2>
     <%end%>
 
     <%= link_to "Adicionar novo livro", new_book_path%>

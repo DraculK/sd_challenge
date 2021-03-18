@@ -18,6 +18,7 @@ before_action :find_book, only: [:show, :edit, :update, :destroy]
     end
 
     def update
+        book = Book.find(params[:id])
         begin
             @book.update!(book_params)
             flash[:success] = 'Alterações feitas com sucesso!'
@@ -46,13 +47,9 @@ before_action :find_book, only: [:show, :edit, :update, :destroy]
         end
     end
 
-    def update
-        
-    end
-
     private
     def book_params
-        params.require(:book).permit(:title, :author, :year, :description, :category_id)
+        params.require(:book).permit(:title, :author, :year, :description, :image, :category_id)
     end
 
     def find_book
