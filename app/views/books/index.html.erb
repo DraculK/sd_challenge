@@ -1,18 +1,36 @@
-<body class="index-background">
-    <% if user_signed_in?%>
+<body class="index-background pb-5">
+    <% if user_signed_in? & admin?%>
     <h1 class="pb-3 text-center text-light">
         <%= "Bem-vindo de volta, #{current_user.name}!"%>
     </h1>
-    <% @books.each do |book| %>
-    <h2>
-        <%= link_to book.title, show_book_path(book) %>
-    </h2>
-    <%end%>
-
+    <div class="">
+        <% @books.each do |book| %>
+        <a href="/books/<%= book.id %>">
+            <% if book.image.attached? %>
+            <%= image_tag book.image, style: "width:250px; height:350px; ", class: "pr-1 pl-1" %>
+            <% end %>
+        </a>
+        <%end%>
+    </div>
     <%= link_to "Adicionar novo livro", new_book_path%>
 
+    <% elsif user_signed_in?%>
+    <h1 class="pb-3 text-center text-light">
+        <%= "Bem-vindo de volta, #{current_user.name}!"%>
+    </h1>
+    <div class="">
+        <% @books.each do |book| %>
+        <a href="/books/<%= book.id %>">
+            <% if book.image.attached? %>
+            <%= image_tag book.image, style: "width:250px; height:350px;", class: "pr-1 pl-1" %>
+            <% end %>
+        </a>
+        <%end%>
+    </div>
+
+
     <%else%>
-    <h1 class="text-center text-light">
+    <h1 class=" text-center text-light">
         Não é um usuário?<p><%=link_to "Cadastre-se aqui", new_user_registration_path, class: "font-weight-bold text-info"%></p>
     </h1>
     <%end%>
