@@ -11,10 +11,12 @@ before_action :find_book, only: [:show, :edit, :update, :destroy]
     def new
         @book = Book.new
         @categories = Category.all.map{ |c| [c.name, c.id]}
+        redirect_to root_path, warning: "Sem autorização!" unless admin?
     end
 
     def edit
         @categories = Category.all.map{ |c| [c.name, c.id]}
+        redirect_to root_path, warning: "Sem autorização!" unless admin?
     end
 
     def update
@@ -32,6 +34,7 @@ before_action :find_book, only: [:show, :edit, :update, :destroy]
     def destroy
         @book.destroy
         redirect_to root_path
+        redirect_to root_path, warning: "Sem autorização!" unless admin?
     end
 
     def create 

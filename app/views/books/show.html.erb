@@ -16,7 +16,7 @@
 
 <p>
     <%= @book.description %>
-
+    <%= image_tag @book.image.variant(resize_to_limit: [100, 100]) %>
 </p>
 <% if user_signed_in? & admin?%>
 <%= link_to "Editar livro", edit_book_path(@book)%>
