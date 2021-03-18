@@ -1,3 +1,31 @@
 <h1>Alterações</h1>
 
-<%= render 'form', book: @book %>
+<%= form_for(@book, url: new_book_path) do |f|%>
+
+<div class="form-inputs">
+    <div>
+        <%= f.text_field :title, :placeholder => "Título" %>
+    </div>
+
+    <div>
+        <%= f.text_field :author, :placeholder => "Autor" %>
+    </div>
+
+    <div>
+        <%= f.text_field :year, :placeholder => "Ano" %>
+    </div>
+    <div>
+        <%= f.text_field :description, :placeholder => "Descrição" %>
+    </div>
+
+    <div>
+        <%= f.select :category_id, @categories %>
+    </div>
+
+</div>
+
+<div class="form-actions">
+    <%= f.submit "Editar Livro" %>
+</div>
+
+<% end %>

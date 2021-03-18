@@ -9,6 +9,7 @@
 </head>
 
 <body>
+
     <header>
         <h1>Biblioteca da Universidade</h1>
     </header>
@@ -36,9 +37,6 @@
                 <li>Home</li>
             </a>
             <a href="#">
-                <li>Buscar</li>
-            </a>
-            <a href="#">
                 <li>Conta</li>
             </a>
             <a href="#">
@@ -57,7 +55,7 @@
                     <%= link_to "Criar Conta", new_user_registration_path %>
                 </li>
             </a>
-            <a href="#">
+            <a class="" href="#">
                 <li>
                     <%= link_to 'Log in', new_user_session_path%>
                 </li>
@@ -71,6 +69,7 @@
             $('nav ul').toggleClass('showing');
         });
     </script>
+
 </body>
 
 </html>
