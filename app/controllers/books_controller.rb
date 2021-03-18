@@ -14,6 +14,7 @@ before_action :find_book, only: [:show, :edit, :update, :destroy]
     end
 
     def edit
+        @categories = Category.all.map{ |c| [c.name, c.id]}
     end
 
     def update
