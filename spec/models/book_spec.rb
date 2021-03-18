@@ -26,5 +26,9 @@ RSpec.describe Book, type: :model do
     context "no description book" do
       it {expect(build(:book, description: nil)).to be_invalid}
     end
+
+    context "no category book" do
+      it {expect(build(:book, category: nil)).to be_invalid}
+    end
   end
 end
