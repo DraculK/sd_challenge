@@ -23,11 +23,9 @@ before_action :find_book, only: [:show, :edit, :update, :destroy]
         book = Book.find(params[:id])
         begin
             @book.update!(book_params)
-            flash[:success] = 'Alterações feitas com sucesso!'
-            redirect_to show_book_path
+            redirect_to show_book_path, notice: 'Alterações feitas com sucesso!'
         rescue StandardError => e
-            flash[:error] = e.message
-            redirect_to edit_book_path
+            redirect_to edit_book_path, warning: "Não foi possível editar o livro"
         end
     end
 
@@ -42,17 +40,15 @@ before_action :find_book, only: [:show, :edit, :update, :destroy]
         @book.category_id = params[:category_id]
         begin
             @book.save!
-            flash[:succes] = "Livro adicionado ao catálogo."
-            redirect_to root_path
+            redirect_to root_path, notice: "Livro adicionado ao catálogo."
         rescue StandardError => e 
-            flash[:error] = "Azedou."
-            redirect_to root_path
+            redirect_to new_book_path, alert: "O livro não foi criado"
         end
     end
 
     private
     def book_params
-        params.require(:book).permit(:title, :author, :year, :description, :image, :category_id)
+        params.require(:book).permit(:title, :author, :year, :description, :image, :file, :category_id)
     end
 
     def find_book
