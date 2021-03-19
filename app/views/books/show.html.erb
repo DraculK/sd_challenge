@@ -16,9 +16,13 @@
 
 <p>
     <%= @book.description %>
-    <%= image_tag @book.image.variant(resize_to_limit: [100, 100]) %>
 </p>
-<% if user_signed_in? & admin?%>
-<%= link_to "Editar livro", edit_book_path(@book)%>
-<%= link_to "Apagar livro", delete_book_path(@book), method: :delete, data: {confirm: "Essa ação não pode ser desfeita! Quer continuar?"} %>
+<p>
+    <%= image_tag @book.image.variant(resize_to_limit: [300, 300]) %>
+
+    <% if user_signed_in? & admin?%>
+    <%= link_to "Editar livro", edit_book_path(@book)%>
+    <%= link_to "Apagar livro", delete_book_path(@book), method: :delete, data: {confirm: "Essa ação não pode ser desfeita! Quer continuar?"} %>
+    <%= link_to 'Ler online', @book.file%>
+</p>
 <%end%>

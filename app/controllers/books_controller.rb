@@ -48,7 +48,7 @@ before_action :find_book, only: [:show, :edit, :update, :destroy]
 
     private
     def book_params
-        params.require(:book).permit(:title, :author, :year, :description, :image, :category_id)
+        params.require(:book).permit(:title, :author, :year, :description, :image, :file, :category_id)
     end
 
     def find_book
