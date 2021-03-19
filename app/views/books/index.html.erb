@@ -12,8 +12,9 @@
         </a>
         <%end%>
     </div>
-    <%= link_to "Adicionar novo livro", new_book_path%>
-
+    <div class="pt-3 text-center">
+        <%= link_to "Adicionar novo livro", new_book_path, class: "btn btn-primary"%>
+    </div>
     <% elsif user_signed_in?%>
     <h1 class="pb-3 text-center text-light">
         <%= "Bem-vindo de volta, #{current_user.name}!"%>
