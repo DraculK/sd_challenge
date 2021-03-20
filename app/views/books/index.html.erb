@@ -19,7 +19,7 @@
     <h1 class="pb-3 text-center text-light">
         <%= "Bem-vindo de volta, #{current_user.name}!"%>
     </h1>
-    <div class="">
+    <div class="text-center">
         <% @books.each do |book| %>
         <a href="/books/<%= book.id %>">
             <% if book.image.attached? %>
