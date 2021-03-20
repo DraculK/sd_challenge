@@ -1,13 +1,13 @@
 <body class="background_form">
     <div class="container_form">
-        <h1>Log in</h1>
+        <h1>Entrar</h1>
 
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field center">
+        <div class="field center pb-2">
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "", placeholder:"Email" %>
         </div>
 
-        <div class="center">
+        <div class="center pb-2">
             <%= f.password_field :password, autocomplete: "current-password", class: "", placeholder:"Senha" %>
         </div>
 
@@ -19,7 +19,7 @@
         <% end %>
 
         <div class="actions center">
-            <%= f.submit "Log in", class: "submit-form btn btn-outline-light" %>
+            <%= f.submit "Entrar", class: "submit-form btn btn-outline-light" %>
         </div>
         <% end %>
         <div class="center text-light">
