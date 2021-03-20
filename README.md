@@ -10,6 +10,7 @@ Para ter acesso a qualquer página do site, o usuário precisa se cadastrar, ass
 * Para criar um livro, todos os campos tem que estar preenchidos
 * Testes feitos com Rspec
 * Site está responsivo
+* Conta do admin presente no seed.rb
 
 # Faltas
 * Perfil do usuário
