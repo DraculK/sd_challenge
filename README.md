@@ -1,24 +1,19 @@
-# README
+# Sobre o Projeto
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+https://switch-challenge.herokuapp.com/  
+A ideia é que o usuário normal só pode acessar os livros, enquanto o administrador pode criar, deletar e editar livros.  
+O usuário só poderar ter acesso a um livro assim que o administrador postar algum.  
+Para ter acesso a qualquer página do site, o usuário precisa se cadastrar, assim que ele se cadastrar, todos os livros apareceção para ele na homepage. 
 
-Things you may want to cover:
+# Alguns detalhes
+* A autenticação foi feita com devise
+* Para criar um livro, todos os campos tem que estar preenchidos
+* Testes feitos com Rspec
+* Site está responsivo
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Faltas
+* Perfil do usuário
+* Semestres
+* Melhorar front e incluir front em algumas páginas
+* Acessar livros por categoria
+* Máscaras para os campos com javascript
