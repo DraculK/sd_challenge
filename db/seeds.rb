@@ -7,3 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(name:"Admin", email:"admin@admin.com", admin: true, registration: "0", password:"Admin12")
+Category.create(name:"Sinais e Sistemas")
+Category.create(name:"Cálculo 1")
+Category.create(name:"Física")
+Category.create(name:"APC")
+Category.create(name:"ED")
+Category.create(name:"Outros")
