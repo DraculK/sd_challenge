@@ -1,0 +1,29 @@
+<body class="background_form">
+    <div class="container_form">
+        <h1>Entrar</h1>
+
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field center pb-2">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "", placeholder:"Email" %>
+        </div>
+
+        <div class="center pb-2">
+            <%= f.password_field :password, autocomplete: "current-password", class: "", placeholder:"Senha" %>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+        <div class="field center text-light">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+        </div>
+        <% end %>
+
+        <div class="actions center">
+            <%= f.submit "Entrar", class: "submit-form btn btn-outline-light" %>
+        </div>
+        <% end %>
+        <div class="center text-light">
+            <%= render "devise/shared/links" %>
+        </div>
+    </div>
+</body>

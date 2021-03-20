@@ -1,0 +1,32 @@
+<body class="index-background text-center">
+    <h1 class="text-light">
+        <%= @book.title %>
+    </h1>
+
+    <h3>
+        Autor: <%= @book.author %>
+    </h3>
+
+    <h3>
+        Matéria: <%= @book.category.name %>
+    </h3>
+
+    <h3>
+        Ano: <%= @book.year %>
+    </h3>
+
+    <p>
+        <%= @book.description %>
+    </p>
+    <p>
+        <%= image_tag @book.image.variant(resize_to_limit: [300, 300]) %>
+    </p>
+    <p>
+        <%= link_to 'Ler online', @book.file, class: "btn btn-primary"%>
+        <% if user_signed_in? & admin?%>
+        <%= link_to "Editar livro", edit_book_path(@book), class: "btn btn-primary"%>
+        <%= link_to "Apagar livro", delete_book_path(@book), method: :delete, data: {confirm: "Essa ação não pode ser desfeita! Quer continuar?"}, class: "btn btn-primary" %>
+
+    </p>
+    <%end%>
+</body>

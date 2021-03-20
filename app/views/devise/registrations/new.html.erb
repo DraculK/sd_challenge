@@ -1,0 +1,32 @@
+<body class="background_form">
+    <div class="container_form">
+        <h1>Criar Conta</h1>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div class="center pb-2">
+            <%= f.text_field :name, autofocus: true, class: "", placeholder:"Nome" %>
+        </div class="field center">
+
+        <div class="field center pb-2">
+            <%= f.text_field :registration, autofocus: true, class: "", placeholder:"Matrícula" %>
+        </div>
+
+        <div class="field center pb-2">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "", placeholder:"Email" %>
+        </div>
+
+        <div class="field center pb-2">
+            <%= f.password_field :password, autocomplete: "new-password", class: "", placeholder:"Senha (mínimo - 6 dígitos)" %>
+        </div>
+
+        <div class="field center pb-2">
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "", placeholder:"Confirme a senha" %>
+        </div>
+
+        <div class="actions center pb-2">
+            <%= f.submit "Entrar", class: "submit-form btn btn-outline-light" %>
+        </div>
+        <% end %>
+    </div>
+</body>

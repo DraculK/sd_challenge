@@ -1,0 +1,53 @@
+<body class="forms-background text-center">
+    <h1 class="form-title">Alterações</h1>
+
+    <%= form_for(@book, url: edit_book_path) do |f|%>
+
+    <div class="form-inputs">
+        <div class="pt-2">
+            <%= f.text_field :title, :placeholder => "Título" %>
+        </div>
+
+        <div class="pt-2">
+            <%= f.text_field :author, :placeholder => "Autor" %>
+        </div>
+
+        <div class="pt-2">
+            <%= f.text_field :year, :placeholder => "Ano" %>
+        </div>
+        <div class="pt-2">
+            <%= f.text_field :description, :placeholder => "Descrição" %>
+        </div>
+
+        <div class="pt-2">
+            <%= f.select :category_id, @categories %>
+        </div>
+
+        <div class="pt-2">
+            <% if @book.image.attached? %>
+            <%= image_tag @book.image, style: "width:250px; height:350px; " %>
+            <% end %>
+        </div>
+        <div class="pt-2">
+            <% f.label :Capa %>
+
+            <p>
+                <%= f.file_field :image, class: "btn btn-outline-secondary" %>
+            </p>
+        </div>
+
+        <div class="pt-2">
+            <%= f.label :PDF %>
+            <p>
+                <%= f.file_field :file, class: "btn btn-outline-secondary" %>
+            </p>
+        </div>
+
+    </div>
+
+    <div class="form-actions pb-2">
+        <%= f.submit "Editar Livro", class: "btn btn-outline-secondary" %>
+    </div>
+
+    <% end %>
+</body>
