@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: sd_challenge_production
-  username: sd_challenge
-  password: <%= ENV['SD_CHALLENGE_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DATABASE_URL'] %>
+  #username: sd_challenge
+  #password: <%= ENV['SD_CHALLENGE_DATABASE_PASSWORD'] %>
